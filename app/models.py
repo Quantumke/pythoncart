@@ -29,3 +29,14 @@ class cart(DynamicDocument):
 	quantity=fields.StringField(max_length=100)
 	total_price=fields.StringField(max_length=100)
 	date=fields.DateTimeField(default=datetime.now)
+class state_cart(models.Model):
+	cart_item_name=models.CharField(max_length=100, unique=False)
+	cart_item_description=models.CharField(max_length=500)
+	cart_item_price=models.IntegerField(max_length=100 , blank=True)
+	cart_session_id=models.CharField(max_length=100)
+	date=models.DateTimeField(default=datetime.now)
+	class Meta:
+		verbose_name = "cart"
+		verbose_name_plural = "carts"
+	def __str__(self):
+		return self.cart_item_name
