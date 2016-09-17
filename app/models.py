@@ -20,3 +20,12 @@ class cart_session(DynamicDocument):
 	session_id=fields.StringField(max_length=100, unique=True)
 	session_date=fields.DateTimeField(blank=False, default=datetime.now)
 
+class cart(DynamicDocument):
+	cart_item_name=fields.StringField(max_length=100, unique=False)
+	cart_item_description=fields.StringField(max_length=500)
+	cart_item_price=fields.StringField(max_length=100 , blank=True)
+	cart_session_id=fields.StringField(max_length=100)
+	cart_slug=fields.StringField(db_field='slug',max_length=100)
+	quantity=fields.StringField(max_length=100)
+	total_price=fields.StringField(max_length=100)
+	date=fields.DateTimeField(default=datetime.now)
