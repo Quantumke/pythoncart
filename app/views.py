@@ -34,3 +34,15 @@ def addcart(request, slug):
 	return render_to_response('index.html',{
 		'slug':slug
 		})
+def view_cart(request):
+	cart_items=cart.objects.all()
+
+
+	return render_to_response('cart.html', {
+		'cart_items':cart_items
+		})
+def update_cart(request, slug):
+	print (slug)
+	return render_to_response('update.html', {
+		'slug':slug
+		})
