@@ -1,0 +1,16 @@
+{% for cart_items in cart_items %}
+{{cart_items.cart_item_name}}
+
+<form action="/update/" method="post">
+{% csrf_token %}
+<input class="item_form" type="text" name="quantity" value="{{cart_items.quantity}}">
+<input type="submit" value="update" name="update">
+ </form>
+{% endfor %}
+<style type="text/css">
+	.item_form{
+		border-style: none;
+		width: 30px;
+	}
+
+</style>
