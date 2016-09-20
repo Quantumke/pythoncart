@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Add to cart</title>
+</head>
+<body>
+{% for items in items %}
+{{items.item_name}}
+{{items.item_description}}
+
+{{items.item_price}}
+<form action="/addcart/" method="post">
+{% csrf_token %}
+<input type="text" name="item_name" value="{{items.item_name}}">
+<input type="text" name="item_description" value="{{items.item_description}}">
+<input type="text" name="item_price" value="{{items.item_price}}">
+<input type="text" name="quantity" value="1" width="1">
+<input type="submit" name="Add To Cart" class="addtocart">
+{{ field.errors}}
+
+</form>
+
+{{errors_msg}}
+{% endfor %}
+{{total_price}}
+
+</body>
+</html>
